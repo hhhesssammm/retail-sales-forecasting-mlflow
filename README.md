@@ -76,4 +76,18 @@ Change `--holiday` to `yes` if the upcoming week is a holiday. Use `--alias cham
 
 The local `mlflow.db` contains experiment and registry metadata, and `mlruns/` holds the artifacts. Keep both for the course submission, together with executed notebooks and the chosen batch's output folder. These generated files are excluded from Git by default because of their size and local absolute artifact paths. Use the original machine/location to demonstrate the UI, or rerun the pipeline after moving the project.
 
-The final report must use actual experiment results; results are not committed until training has been run on the real dataset.
+To run training and generate the final report in one command:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.pipeline
+```
+
+To regenerate the report without retraining (for example after promoting a model):
+
+```powershell
+.\.venv\Scripts\python.exe -m src.report
+```
+
+The self-contained Persian report is written to `reports/forecasts/<batch_id>/final_report.html`. Open in Chrome or Edge and print to PDF on A4, at 100% scale with browser headers and footers disabled. It contains four sections with actual EDA, validation results, test results and registry information; it refuses a mismatched dataset. Review the printed pages and add your own interpretation.
+
+See [submission checklist](docs/submission.md) for the complete delivery and demonstration steps. The final report must use actual experiment results; results are not committed until training has been run on the real dataset.
