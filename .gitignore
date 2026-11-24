@@ -221,3 +221,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local MLflow metadata and artifacts
+/mlruns/
+/mlflow.db
+/mlflow.db-*
+/.idea/
